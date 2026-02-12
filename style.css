@@ -1,0 +1,402 @@
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 50%, #16213e 100%);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #e8e8e8;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  margin-left: 260px;
+}
+
+/* Sidebar styling */
+#sidebar {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 260px;
+  height: 100vh;
+  background: linear-gradient(180deg, #1e1e2f 0%, #252540 100%);
+  color: white;
+  padding: 30px 25px;
+  box-shadow: 4px 0 15px rgba(0,0,0,0.3);
+  border-right: 2px solid #3a3a5c;
+}
+
+#sidebar h3 {
+  margin-top: 0;
+  font-size: 28px;
+  color: #ffd700;
+  text-align: center;
+  margin-bottom: 30px;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+#sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+#sidebar li {
+  margin-bottom: 15px;
+}
+
+#sidebar a {
+  color: #c8c8c8;
+  text-decoration: none;
+  font-weight: 500;
+  padding: 12px 15px;
+  border-radius: 8px;
+  display: block;
+  transition: all 0.3s ease;
+  border-left: 3px solid transparent;
+}
+
+#sidebar a:hover {
+  background-color: rgba(255, 215, 0, 0.1);
+  border-left-color: #ffd700;
+  color: #ffd700;
+  transform: translateX(5px);
+}
+
+/* Main content area */
+#auth-area, #app-area {
+  max-width: 500px;
+  margin: 50px auto;
+  padding: 40px;
+  background: linear-gradient(145deg, #1e1e2f 0%, #2a2a3e 100%);
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+  border: 1px solid #3a3a5c;
+}
+
+#otsikko {
+  font-size: 26px;
+  font-weight: 600;
+  color: #ffd700;
+  text-align: center;
+  margin-bottom: 30px;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+  line-height: 1.4;
+}
+
+/* Event date area */
+#event-date-area {
+  text-align: center;
+  margin: 30px auto;
+  padding: 20px;
+  background: linear-gradient(145deg, #2a2a3e 0%, #1e1e2f 100%);
+  border-radius: 15px;
+  max-width: 500px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+#event-date-text {
+  color: #ffd700;
+  font-size: 24px;
+  margin: 0;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+}
+
+/* Form styling */
+input {
+  width: 100%;
+  padding: 15px;
+  margin: 10px 0;
+  border-radius: 10px;
+  border: 2px solid #3a3a5c;
+  background: #2a2a3e;
+  color: #e8e8e8;
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+
+input:focus {
+  outline: none;
+  border-color: #ffd700;
+  box-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
+}
+
+input::placeholder {
+  color: #888;
+}
+
+/* Button styling */
+button {
+  background: linear-gradient(145deg, #ffd700 0%, #ffed4a 100%);
+  color: #1e1e2f;
+  padding: 15px 20px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  width: 100%;
+  font-weight: 600;
+  font-size: 16px;
+  margin: 10px 0;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(255, 215, 0, 0.3);
+}
+
+button:hover {
+  background: linear-gradient(145deg, #ffed4a 0%, #ffd700 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(255, 215, 0, 0.4);
+}
+
+button:active {
+  transform: translateY(0);
+}
+
+button:disabled {
+  background: linear-gradient(145deg, #4a4a5c 0%, #3a3a4c 100%);
+  color: #888;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+/* Slot buttons */
+#slots {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 15px;
+  margin: 20px 0;
+}
+
+#slots div {
+  background: linear-gradient(145deg, #2a2a3e 0%, #1e1e2f 100%);
+  padding: 20px;
+  border-radius: 12px;
+  border: 1px solid #3a3a5c;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+#slots div:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(255, 215, 0, 0.2);
+}
+
+#slots button {
+  margin: 10px 0 0 0;
+  font-size: 14px;
+  padding: 12px 15px;
+}
+
+/* My slot area */
+#my-slot {
+  margin-top: 30px;
+  padding: 25px;
+  background: linear-gradient(145deg, #2a3e2a 0%, #1e2f1e 100%);
+  color: #a8d8a8;
+  border-radius: 15px;
+  text-align: center;
+  border: 1px solid #4a6a4a;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+#my-slot strong {
+  color: #90ee90;
+  font-size: 18px;
+}
+
+/* Admin and logout buttons */
+#admin-reset {
+  background: linear-gradient(145deg, #dc3545 0%, #c82333 100%);
+  color: white;
+  margin-top: 20px;
+}
+
+#admin-reset:hover {
+  background: linear-gradient(145deg, #c82333 0%, #dc3545 100%);
+}
+
+#logout {
+  background: linear-gradient(145deg, #6c757d 0%, #5a6268 100%);
+  color: white;
+  margin-top: 15px;
+}
+
+#logout:hover {
+  background: linear-gradient(145deg, #5a6268 0%, #6c757d 100%);
+}
+
+/* Edit date area */
+#edit-date-area {
+  background: linear-gradient(145deg, #3e2a3e 0%, #2f1e2f 100%);
+  padding: 25px;
+  border-radius: 15px;
+  margin: 30px auto;
+  max-width: 500px;
+  border: 1px solid #5c3a5c;
+}
+
+#edit-date-area input {
+  margin-bottom: 15px;
+}
+
+/* Content area styling */
+#content-area {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+#content-area h2 {
+  color: #ffd700;
+  font-size: 24px;
+  margin-bottom: 20px;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+#content-area p {
+  color: #c8c8c8;
+  font-size: 16px;
+  line-height: 1.6;
+  margin-bottom: 15px;
+}
+
+/* Auth views */
+#login-view, #register-view {
+  background: linear-gradient(145deg, #2a2a3e 0%, #1e1e2f 100%);
+  padding: 30px;
+  border-radius: 15px;
+  margin: 20px 0;
+  border: 1px solid #3a3a5c;
+}
+
+#login-view h3, #register-view h3 {
+  color: #ffd700;
+  text-align: center;
+  margin-bottom: 25px;
+  font-size: 20px;
+}
+
+#login-view p, #register-view p {
+  text-align: center;
+  margin-top: 20px;
+  color: #c8c8c8;
+}
+
+#login-view a, #register-view a {
+  color: #ffd700;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+#login-view a:hover, #register-view a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  body {
+    margin-left: 0;
+  }
+  
+  #sidebar {
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+  }
+  
+  #auth-area, #app-area {
+    margin: 20px;
+    padding: 25px;
+  }
+  
+  #slots {
+    grid-template-columns: 1fr;
+  }
+  
+  #otsikko {
+    font-size: 20px;
+  }
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+#auth-area, #app-area {
+  animation: fadeIn 0.5s ease;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1e1e2f;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #ffd700;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #ffed4a;
+}
+
+/* Hamburger-nappi */
+#menu-toggle {
+  display: none;
+  position: fixed;
+  top: 15px;
+  left: 15px;
+  font-size: 28px;
+  color: #ffd700;
+  background-color: #1e1e2f;
+  padding: 10px 15px;
+  border-radius: 8px;
+  z-index: 999;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.5);
+}
+
+/* Mobiilissa näytetään menu-nappi ja piilotetaan sidebar */
+@media (max-width: 768px) {
+  #menu-toggle {
+    display: block;
+  }
+
+  #sidebar {
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+  }
+
+  #sidebar.open {
+    transform: translateX(0);
+  }
+
+  body {
+    margin-left: 0;
+  }
+}
+
+#auth-message {
+  margin-top: 15px;
+  padding: 12px;
+  border-radius: 8px;
+  font-size: 14px;
+  text-align: center;
+}
+
+.auth-success {
+  background: rgba(0, 255, 150, 0.15);
+  color: #90ee90;
+  border: 1px solid #4a6a4a;
+}
+
+.auth-error {
+  background: rgba(255, 80, 80, 0.15);
+  color: #ffaaaa;
+  border: 1px solid #6a4a4a;
+}

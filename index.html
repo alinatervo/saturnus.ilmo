@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <title>Ilmoittautuminen</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- Firebase-skriptit -->
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+</head>
+<body>
+  <div id="menu-toggle" onclick="toggleSidebar()">☰</div>
+  <div id="sidebar">
+    <h3>🪐</h3>
+    <ul id="menu">
+      <li><a href="tahtinaytos.html">Tietoa tähtinäytöksistä</a></li>
+      <li id="logout-link" style="display:none;"><a href="#" onclick="logout()">Kirjaudu ulos</a></li>
+    </ul>
+  </div>
+
+  <div id="event-date-area">
+    <h2 id="event-date-text" style="display:none;">Tähtinäytös: <span id="event-date"></span></h2>
+    <div id="edit-date-area" style="display:none;">
+      <input type="text" id="new-date" placeholder="Uusi päivämäärä">
+      <button onclick="saveNewDate()">Tallenna</button>
+    </div>
+  </div>
+
+  <div id="auth-area">
+    <h2 id="otsikko">Ilmoittautuminen Kuopion Saturnuksen järjestämään tähtinäytökseen <span id="otsikko-date">...</span></h2>
+
+    <!-- Kirjautuminen -->
+    <div id="login-view">
+      <h3>Kirjaudu sisään</h3>
+      <input type="email" id="login-email" placeholder="Sähköposti">
+      <input type="password" id="login-password" placeholder="Salasana">
+      <button id="login-btn">Kirjaudu</button>
+      <p style="margin-top:10px;">
+        <a href="#" onclick="resetPassword()">Unohditko salasanan?</a>
+      </p>
+      <p>Ei tiliä? <a href="#" onclick="showRegister()">Rekisteröidy</a></p>
+    </div>
+    <div id="auth-message" style="display:none;"></div>
+
+    
+
+
+    <!-- Rekisteröinti -->
+    <div id="register-view" style="display:none;">
+      <h3>Luo tili</h3>
+      <input type="email" id="register-email" placeholder="Sähköposti">
+      <input type="password" id="register-password" placeholder="Salasana">
+      <button id="register-btn">Rekisteröidy</button>
+      <p style="font-size:14px; color:#c8c8c8; margin-top:10px;">
+        Sähköpostiosoitteita käytetään vain ilmoittautumiseen, eikä niitä julkaista tai luovuteta kolmansille osapuolille.
+      </p>
+      <p>Onko sinulla jo tili? <a href="#" onclick="showLogin()">Kirjaudu</a></p>
+    </div>
+  </div>
+
+  <div id="app-area" style="display:none;">
+    <div id="content-area">
+      <h2>Ilmoittaudu tähtinäytökseen</h2>
+      <p>Voit ilmoittautua vain yhteen aikaan.Valitse montako henkilöä osallistuu.</p>
+    </div>
+
+    <h2>Valitse aika:</h2>
+    <div id="slots"></div>
+
+    <button id="admin-reset" style="display:none;">Nollaa ilmoittautuminen</button>
+    <button id="logout">Kirjaudu ulos</button>
+    <div id="my-slot"></div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
