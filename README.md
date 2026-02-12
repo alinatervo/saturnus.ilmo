@@ -25,5 +25,8 @@ Users can register, log in, and sign up for available time slots. Admins can man
 - Email addresses are used solely for registration purposes and will not be published or shared.
 
 ## Preview
-
+**Sign-in view**
 ![App Screenshot](Screenshot_readme.png)
+
+**Main view**
+![App Screenshot](Screenshot_readme2.png)
