@@ -1,12 +1,5 @@
 // Firebase
-const firebaseConfig = {
-  apiKey: 
-  authDomain: "saturnusilmo.firebaseapp.com",
-  projectId: "saturnusilmo",
-  storageBucket: "saturnusilmo.firebasestorage.app",
-  messagingSenderId: "1097247572697",
-  appId: "",
-  measurementId: 
+
 };
 
 firebase.initializeApp(firebaseConfig);
